@@ -1,0 +1,68 @@
+
+class UserInfo {
+    //required 
+    private String myName;
+    private int myAge;
+    
+    //optional
+    private String likeTo;
+    private String favoriteLanguage;
+
+    public UserInfo(UserBuilder builder) {
+        this.myName = builder.myName;
+        this.myAge = builder.myAge;
+        this.likeTo = builder.likeTo;
+        this.favoriteLanguage = builder.favoriteLanguage;
+    }
+
+    public String getMyName() {
+        return myName;
+    }
+
+    public int getMyAge() {
+        return myAge;
+    }
+
+    public String getLikeTo() {
+        return likeTo;
+    }
+
+    public String getFavoriteLanguage() {
+        return favoriteLanguage;
+    }
+
+    public static class UserBuilder {
+
+        private String myName;
+        private int myAge;
+        private String likeTo;
+        private String favoriteLanguage;
+
+        public UserBuilder(String myName, int myAge) {
+            this.myName = myName;
+            this.myAge = myAge;
+        }
+
+        public UserBuilder setLike(String likeTo) {
+            this.likeTo = likeTo;
+            return this;
+        }
+
+        public UserBuilder setFavoriteLanguage(String language) {
+            this.favoriteLanguage = language;
+            return this;
+        }
+
+        public UserInfo build() {
+            return new UserInfo(this);
+        }
+    }
+}
+class BuilderContainer{
+    public static void main(String[] args){
+        UserInfo user = new UserInfo.UserBuilder("Ariful Haque",27).setFavoriteLanguage("Kotlin").setLike("Sing").build();
+        
+    }
+}
+
+
