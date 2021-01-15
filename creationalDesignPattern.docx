@@ -1,5 +1,5 @@
 
-class UserInfo {
+class User {
     //required 
     private String myName;
     private int myAge;
@@ -8,7 +8,7 @@ class UserInfo {
     private String likeTo;
     private String favoriteLanguage;
 
-    public UserInfo(UserBuilder builder) {
+    public User(UserBuilder builder) {
         this.myName = builder.myName;
         this.myAge = builder.myAge;
         this.likeTo = builder.likeTo;
@@ -53,14 +53,14 @@ class UserInfo {
             return this;
         }
 
-        public UserInfo build() {
-            return new UserInfo(this);
+        public User build() {
+            return new User(this);
         }
     }
 }
 class BuilderContainer{
     public static void main(String[] args){
-        UserInfo user = new UserInfo.UserBuilder("Ariful Haque",27).setFavoriteLanguage("Kotlin").setLike("Sing").build();
+        User user = new User.UserBuilder("Ariful Haque",27).setFavoriteLanguage("Kotlin").setLike("Sing").build();
         
     }
 }
